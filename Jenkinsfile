@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    parameters {
+            choice(name: 'action', choices: ['apply','destroy'], description: 'Terraform action')
+    }
+
     stages {
         stage('Checkout') {
             steps {
